@@ -1,4 +1,6 @@
 # Hello, folks! <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px">
+### About me 
+  * [Blog](https://cumulativeskillstack.blogspot.com/)
 ### Table of Contents
   * BACK-END
       * [Socket Programming with Python - TCP](https://cumulativebackendstack.blogspot.com/2021/03/tcp-with-socket-programming-in-python-1.html) 
