@@ -1,54 +1,78 @@
 import socket
-import selectors
-import types
+import threading
+from queue import Queue
 
-messages = [b'Message 1 from client', b'Message 2 from client']
+HEADER_LENGTH = 10
+NUMBER_OF_THREADS = 2
+job_queue = Queue()
+JOB_SCHEDULING = [0, 1]
 
-HOST = "localhost"
-PORT = 9999
+def recv_msg(client) :
+    header_length = int(client.recv(HEADER_LENGTH).decode())
+    msg = client.recv(header_length).decode()
+    return msg
 
-sel = selectors.DefaultSelector()
+def msg_format(msg) :
+    if type(msg) != bytes : msg = msg.encode()
+    header = f"{len(msg): <{HEADER_LENGTH}}".encode()
+    return header + msg
 
-# num_conns is the number of connections to create to the server
-def start_connections(host, port, num_conns) :
-    server_addr = (host, port)
-    for i in range(0, num_conns) :
-        connid = i + 1
-        print(f"Starting connection {connid} to {server_addr}")
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.setblocking(False)
-        # connect_ex() : initially returns an error indicator instead of raising error immediately (such as connect())
-        sock.connect_ex(server_addr)
-        events = selectors.EVENT_READ | selectors.EVENT_WRITE
-        # setting the data we wnt
-        data = types.SimpleNamespace(connid=connid,
-                                     msg_total=sum(len(m) for m in messages),
-                                     recv_total=0,
-                                     messages=list(messages),
-                                     outb=b''
-                                     )
-        sel.register(sock, events, data=data)
+def connect_server(IP='localhost', PORT=9999) :
+    try :
+        client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        client.connect((IP, PORT))
+        print("Connected to the server")
+        return client
+    except :
+        print("Error occurred while connecting to the server")
+        return None
 
-def service_connection(key, mask):
-    sock = key.fileobj
-    data = key.data
-    if mask & selectors.EVENT_READ:
-        recv_data = sock.recv(1024)  # Should be ready to read
-        if recv_data:
-            print('received', repr(recv_data), 'from connection', data.connid)
-            data.recv_total += len(recv_data)
-        if not recv_data or data.recv_total == data.msg_total:
-            print('closing connection', data.connid)
-            sel.unregister(sock)
-            sock.close()
-    if mask & selectors.EVENT_WRITE:
-        if not data.outb and data.messages:
-            data.outb = data.messages.pop(0)
-        if data.outb:
-            print('sending', repr(data.outb), 'to connection', data.connid)
-            sent = sock.send(data.outb)  # Should be ready to write
-            data.outb = data.outb[sent:]
+# scheduler tasks
+def receive_message_from_server(client) :
+    while True :
+        client.settimeout(1)
+        try :
+            msg_from_server = recv_msg(client)
+            if len(msg_from_server) > 0:
+                print(f"\nMessage from server : {msg_from_server}")
+        except :
+            continue
+
+def send_message_to_server(client) :
+    while True :
+        msg_to_server = input("Enter message to send : ")
+        msg_to_server = msg_format(msg_to_server)
+        client.send(msg_to_server)
+
+def scheduler(client) :
+    while True :
+        task_number = job_queue.get()
+        if task_number == 0 :
+            receive_message_from_server(client)
+        elif task_number == 1 :
+            send_message_to_server(client)
+
+        job_queue.task_done()
+
+def create_threads(client) :
+    for _ in range(NUMBER_OF_THREADS) :
+        t = threading.Thread(target=scheduler, args=[client])
+        t.daemon = True
+        t.start()
+
+def create_tasks() :
+    for JOB in JOB_SCHEDULING :
+        job_queue.put(JOB)
+
+    job_queue.join()
+
+def main() :
+    client = connect_server(IP='143.110.150.121', PORT=9999)
+
+    create_threads(client)
+    create_tasks()
+
+    client.close()
 
 if __name__ == "__main__" :
-    start_connections(HOST, PORT)
-
+    main()

@@ -1,70 +1,189 @@
 import socket
-import selectors
-import types
+from queue import Queue
+import time
+import threading
 
-sel = selectors.DefaultSelector()
+connected_clients = []
+# connected_clients = dict()
+HEADER_LENGTH = 10
+job_queue = Queue(maxsize=10)
+JOB_SCHEDULING = [0, 1, 2, 3]
+NUMBER_OF_THREADS = 8
 
-HOST = ""
-PORT = 9999
+def recv_msg(idx) :
+    address, connection = connected_clients[idx]
+    try :
+        connection.settimeout(0.1)
+        header_length = int(connection.recv(HEADER_LENGTH).decode())
+        client_address = f"{address[0]}:{address[1]} > "
+        return client_address + connection.recv(header_length).decode()
+    except socket.timeout as e :
+        return ""
+    except Exception as e :
+        # when the client want to end connection
+        connected_clients.pop(idx)
+        return ""
 
-lsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-lsock.bind((HOST, PORT))
-lsock.listen()
-print(f"listening on {(HOST, PORT)}")
+def msg_format(msg) :
+    if type(msg) != bytes : msg = msg.encode()
+    header = f"{len(msg): <{HEADER_LENGTH}}".encode()
+    return header + msg
 
-# calls to this socket will not block the process
-# when used with sel.select(), we can wait for events on one or more sockets and then read and write data when ready
-lsock.setblocking(False)
+def create_socket() :
+    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    return server
 
-# register() : resgister a socket to be monitored with sel.select() for the events you are interesed in
-# data is used to store whatever arbitrary data you'd like along with the socket -> returned when select() returns
-sel.register(lsock, selectors.EVENT_READ, data=None)
+def bind_listen_socket(server, HOST="", PORT=9999, backlog=5) :
+    try :
+        server.bind((HOST, PORT))
+    except Exception as e :
+        print("Socket binding retrying...")
+        time.sleep(2)
+        bind_listen_socket(server)
 
-def accept_wrapper(sock) :
-    conn, addr = sock.accept()
-    print(f"accepted connection from {addr}")
-    conn.setblocking(False)
-    data = types.SimpleNamespace(addr=addr, inb=b'', outb=b'')
+    server.listen(5)
 
-    # we want to know when the client connection is ready for reading and writing, both of thoes events are set
-    events = selectors.EVENT_READ | selectors.EVENT_WRITE
-    sel.register(conn, events, data=data)
+def accept_client(server) :
+    while True :
+        try :
+            # server.settimeout(5)
+            connection, address = server.accept()
+            # print("=====Client Connected=====")
+            # print(f"Connected to {address[0]}:{address[1]}")
+        except Exception as e:
+            print(f"Error occured while accepting connection requests : {e}")
+        else:
+            connected_clients.append((address, connection))
 
-def service_connection(key, mask) :
-    sock = key.fileobj
-    data = key.data
+def remove_invalid_connections() :
+    global start
+    check_interval = 10
+    while True :
+        time.sleep(check_interval)
+        invalid_address_indexes = []
 
-    # when the socket is ready for reading
-    if mask & selectors.EVENT_READ :
-        recv_data = sock.recv(1024)
-        if recv_data :
-            data.outb += recv_data
+        for idx, (address, connection) in enumerate(connected_clients) :
+            try :
+                check_msg = ""
+                connection.send(msg_format(check_msg))
+            except :
+                # means connection isn't valid
+                invalid_address_indexes.append(idx)
+
+        for idx in invalid_address_indexes:
+            connected_clients.pop(idx)
+
+def list_connected_client() :
+    n = 0
+    print("==========Connected Clients==========")
+    for address, connection in connected_clients :
+        print(f"{n} {address}")
+        n += 1
+
+    print()
+
+def close_all_connection() :
+    for address, connection in connected_clients :
+        connection.close()
+
+    connected_clients.clear()
+
+def select_connection_and_send_message(cmd) :
+    cmd = cmd.split()
+    idx = int(cmd[1])
+
+    print(".stop to stop message sending")
+    while True :
+        try :
+            address, connection = connected_clients[idx]
+            message_to_client = input("Enter message to client : ")
+            if message_to_client == ".stop" :
+                break
+            message_to_client = msg_format(message_to_client)
+            connection.send(message_to_client)
+        except Exception as e :
+            print(f"Selected connection{address} isn't valid : {e}")
+
+def broadcast() :
+    message_to_clients = input("Enter broadcast message : ")
+    message_to_clients = msg_format(message_to_clients)
+    for address, connection in connected_clients :
+        try :
+            connection.send(message_to_clients)
+        except :
+            continue
+
+def print_list_of_commands() :
+    list_of_commands = [
+        "1. list : list all valid connections",
+        "2. close all connections : close all valid connections",
+        "3. select (client ) : connect to specified client",
+        "4. broadcast : broadcast to all clients"
+    ]
+    for command in list_of_commands :
+        print(command)
+
+def work(server) :
+    print_list_of_commands()
+
+    while True :
+        cmd = input("Enter command : ")
+
+        if cmd == "list" :
+            list_connected_client()
+        elif cmd == "close all connections" :
+            close_all_connection()
+        elif "select" in cmd :
+            select_connection_and_send_message(cmd)
+        elif cmd == "broadcast" :
+            broadcast()
         else :
-            print(f"Closing connection to {data.addr}")
-            # to unmonitor closing connection
-            sel.unregister(sock)
-            sock.close()
+            print("Invalid command")
+            print_list_of_commands()
 
-    # when socket is ready to write
-    if mask & selectors.EVENT_WRITE :
-        # any received data stored in data.outb is echoed to the client using sock.send()
-        if data.outb :
-            print(f"Echoing {repr(data.outb)} to {data.addr}")
-            sent = sock.send(data.outb)
-            data.outb = data.outb[sent:]
+def receive_all_incoming_messages() :
+    print("Receiving from others")
+    while True :
+        for idx, (address, connection) in enumerate(connected_clients) :
+            message_from_client = recv_msg(idx)
+            if len(message_from_client) > 0 :
+                print(f"\nMessage from {message_from_client}")
 
-while True :
-    # sel.select() blocks until there are sockets ready for I/O
-    # returns a list of (key, events), one for each socket
-    events = sel.select(timeout=None)
+def scheduler(server) :
+    while True :
+        task_number = job_queue.get()
+        if task_number == 0 :
+            accept_client(server)
+        elif task_number == 1 :
+            remove_invalid_connections()
+        elif task_number ==  2 :
+            receive_all_incoming_messages()
+        elif task_number == 3 :
+            work(server)
+        job_queue.task_done()
 
-    # key is a SelectorKey namedtuple that contains a fileobj attribute
-    # key.fileobj is the socket object
-    # mask is an event mask of the operations that are ready
-    for key, mask in events :
-        # key.data == None means the socket is the listening socket
-        if key.data is None :
-            accept_wrapper(key.fileobj)
-        # key.data != None means the socket is a client socket that'b been connected
-        else :
-            service_connection(key, mask)
+def create_threads(server) :
+    for _ in range(NUMBER_OF_THREADS) :
+        t = threading.Thread(target=scheduler, args=[server])
+        t.daemon = True
+        t.start()
+
+def create_tasks():
+    # 0 : accept client connection
+    # 1 : remove_invalid_connections
+    # 2 : work()
+    # 3 : receve_all_incoming_messages()
+    for JOB in JOB_SCHEDULING:
+        job_queue.put(JOB)
+
+    job_queue.join()
+
+def main() :
+    server = create_socket()
+    bind_listen_socket(server)
+
+    create_threads(server)
+    create_tasks()
+
+if __name__ == "__main__" :
+    main()
