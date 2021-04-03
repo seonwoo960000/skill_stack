@@ -12,5 +12,7 @@
   * Competitive Programming and Algorithms 
   * Security
       * [Encryption (Md5, SHA256) with Python](https://cumulativebackendstack.blogspot.com/2021/03/encryption-with-python.html)
+  * Projects 
+      * [Chatting Bot Application - multiple clients with multi-threading](https://github.com/seonwoo960000/skill_stack/tree/main/Chatting%20Bot)
   * Etc 
       * [Buffers during connection with Python](https://cumulativebackendstack.blogspot.com/2021/03/buffer-related-to-socketrecv.html)
