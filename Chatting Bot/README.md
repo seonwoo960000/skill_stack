@@ -4,10 +4,14 @@
  * Programming language : python 
  * Script for server (multithreading, multiple connections available) 
  * Script for client (multithreading for reading and writing) 
-![Flowchar](diagrams/chatBotServer.png)
+![Flowchart](diagrams/chatBotServer.png)
+![Flowchart](diagrams/chatBotClient.png)
 
-## Features
+## Features(server)
  * Multi-threading and scheduling tasks using queue 
  * Multiple connection from clients available
  * Able to send and receive messages simultaneously 
  * Able to connect clients from different networks 
+
+## Features(client)
+ * Able to receive and sent messages concurrently
