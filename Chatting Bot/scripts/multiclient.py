@@ -67,7 +67,8 @@ def create_tasks() :
     job_queue.join()
 
 def main() :
-    client = connect_server(IP='143.110.150.121', PORT=9999)
+    # if the server can be accessed throught the public IP, change the IP to the server's public IP 
+    client = connect_server(IP='localhost', PORT=9999)
 
     create_threads(client)
     create_tasks()
