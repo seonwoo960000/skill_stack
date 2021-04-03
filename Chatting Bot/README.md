@@ -1,6 +1,6 @@
 # Chatting Bot application 
 
-## Flowchart diagram (chatBotServer.py) 
+## Flowchart diagram (multiserver.py) 
  * Programming language : python 
  * Script for server (multithreading, multiple connections available) 
  * Script for client (multithreading for reading and writing) 
