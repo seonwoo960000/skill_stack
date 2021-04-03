@@ -6,7 +6,7 @@
  * Script for client (multithreading for reading and writing) 
 ### Server
 ![Flowchart](diagrams/chatBotServer.png)
-**************************************************************************
+*************************************************************************************************************************************
 ### Client
 ![Flowchart](diagrams/chatBotClient.png)
 
