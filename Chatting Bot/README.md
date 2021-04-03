@@ -1,3 +1,3 @@
-### This is a chatting bot application written in python 
+# This is a chatting bot application written in python 
 
 ## Flowchart diagram 
