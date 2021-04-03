@@ -10,3 +10,4 @@
  * Multi-threading and scheduling tasks using queue 
  * Multiple connection from clients available
  * Able to send and receive messages simultaneously 
+ * Able to connect clients from different networks 
