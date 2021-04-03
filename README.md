@@ -19,6 +19,3 @@
       * [Chatting Bot Application - multiple clients with multi-threading](https://github.com/seonwoo960000/skill_stack/tree/main/Chatting%20Bot)
   * Etc 
       * [Buffers during connection with Python](https://cumulativebackendstack.blogspot.com/2021/03/buffer-related-to-socketrecv.html)
-```python
-import socket 
-```
