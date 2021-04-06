@@ -13,7 +13,7 @@
       * [Process, Multiprocess with C/C++ and Python](https://cumulativebackendstack.blogspot.com/2021/03/with-cc-what-is-process-process-is.html)
   * Competitive Programming and Algorithms 
   * Security
-      * [Encryption (Md5, SHA256) with Python](https://cumulativebackendstack.blogspot.com/2021/03/encryption-with-python.html)
+      * [Encryption (MD5, SHA256) with Python](https://cumulativebackendstack.blogspot.com/2021/03/encryption-with-python.html)
   * Projects 
       * [Chatting Bot Application - multiple clients with multi-threading](https://github.com/seonwoo960000/skill_stack/tree/main/Chatting%20Bot)
   * JAVA 
