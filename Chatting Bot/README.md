@@ -1,9 +1,10 @@
 # Chatting Bot application 
 
-## [Scripts for server, client](https://github.com/seonwoo960000/skill_stack/blob/main/Chatting%20Bot/scripts/multiserver.py) 
+## [Scripts]
  * Programming language : python 
  * Script for server (multithreading, multiple connections available) 
  * Script for client (multithreading for reading and writing)
+ * [script - server](https://github.com/seonwoo960000/skill_stack/blob/main/Chatting%20Bot/scripts/multiserver.py) 
 
 ## Server features
  * Multi-threading and scheduling tasks using queue 
