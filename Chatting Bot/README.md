@@ -5,6 +5,7 @@
  * Script for server (multithreading, multiple connections available) 
  * Script for client (multithreading for reading and writing)
  * [script - server](https://github.com/seonwoo960000/skill_stack/blob/main/Chatting%20Bot/scripts/multiserver.py) 
+ * [script - client](https://github.com/seonwoo960000/skill_stack/blob/main/Chatting%20Bot/scripts/multiclient.py)
 
 ## Server features
  * Multi-threading and scheduling tasks using queue 
