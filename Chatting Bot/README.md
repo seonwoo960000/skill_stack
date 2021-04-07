@@ -1,4 +1,4 @@
-# Chatting Bot application 
+# Multithreaded Chatting Bot
 
 ## [Scripts]
  * Programming language : python 
