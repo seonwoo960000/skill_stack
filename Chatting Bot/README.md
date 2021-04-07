@@ -5,21 +5,21 @@
  * Script for server (multithreading, multiple connections available) 
  * Script for client (multithreading for reading and writing)
 
-## Features(server)
+## Server features
  * Multi-threading and scheduling tasks using queue 
  * Multiple connection from clients available
  * Able to send and receive messages simultaneously 
  * Able to connect clients from different networks 
 
-## Features(client)
+## Client features
  * Able to receive and sent messages concurrently 
 
 ## Limitations
  * Confusion in the command line when input message and receiving message come in at the same time
  * Direct communication between client and client isn't available 
 *************************************************************************************************************************************
-### Server
+### Server diagram
 ![Flowchart](diagrams/chatBotServer.png)
 *************************************************************************************************************************************
-### Client
+### Client diagram
 ![Flowchart](diagrams/chatBotClient.png)
