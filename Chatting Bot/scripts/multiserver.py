@@ -4,7 +4,6 @@ import time
 import threading
 
 connected_clients = []
-# connected_clients = dict()
 HEADER_LENGTH = 10
 job_queue = Queue(maxsize=10)
 JOB_SCHEDULING = [0, 1, 2, 3]
@@ -20,7 +19,6 @@ def recv_msg(idx) :
     except socket.timeout as e :
         return ""
     except Exception as e :
-        # when the client want to end connection
         connected_clients.pop(idx)
         return ""
 
@@ -46,10 +44,7 @@ def bind_listen_socket(server, HOST="", PORT=9999, backlog=5) :
 def accept_client(server) :
     while True :
         try :
-            # server.settimeout(5)
             connection, address = server.accept()
-            # print("=====Client Connected=====")
-            # print(f"Connected to {address[0]}:{address[1]}")
         except Exception as e:
             print(f"Error occured while accepting connection requests : {e}")
         else:
@@ -169,10 +164,6 @@ def create_threads(server) :
         t.start()
 
 def create_tasks():
-    # 0 : accept client connection
-    # 1 : remove_invalid_connections
-    # 2 : work()
-    # 3 : receve_all_incoming_messages()
     for JOB in JOB_SCHEDULING:
         job_queue.put(JOB)
 
