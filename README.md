@@ -16,6 +16,7 @@
       * [Encryption (MD5, SHA256) with Python](https://cumulativebackendstack.blogspot.com/2021/03/encryption-with-python.html)
   * Projects 
       * [Chatting Bot Application - multiple clients with multi-threading](https://github.com/seonwoo960000/skill_stack/tree/main/Chatting%20Bot)
+      * [Chatting Bot Application with GUI - async](https://github.com/seonwoo960000/skill_stack/tree/main/Chatting%20Bot%20Gui)
   * JAVA 
       * [JVM, JRE, JDK](https://cumulativeprogramminglanguage.blogspot.com/2021/04/spring.html)
       * [Data Structures of Java In Comparison to Python, C/C++](https://cumulativeprogramminglanguage.blogspot.com/2021/04/java-data-structures-vs-python-cc-data.html)
