@@ -110,8 +110,6 @@ def create_window_and_widgets():
                         '<Return>',
                         get_port,
                     )
-            #
-            client = mcg.connect_server(ip, port)
         else:
             frame = tk.Frame(
                 master=window,
