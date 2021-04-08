@@ -21,3 +21,5 @@
 ## Limitation 
   * Incomplete 
 *************************************************************************************************************************************
+### Client GUI Diagram 
+![Flowchart](https://github.com/seonwoo960000/skill_stack/blob/main/Chatting%20Bot%20Gui/diagrams/gui_client.png)
