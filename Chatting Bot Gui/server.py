@@ -10,6 +10,10 @@ JOB_SCHEDULING = [0, 1, 2, 3]
 NUMBER_OF_THREADS = 8
 
 def recv_msg(idx) :
+    """
+    receive message in a format with header
+    return message after removing header and appending client address
+    """
     address, connection = connected_clients[idx]
     try :
         connection.settimeout(0.1)
@@ -23,15 +27,25 @@ def recv_msg(idx) :
         return ""
 
 def msg_format(msg) :
-    if type(msg) != bytes : msg = msg.encode()
+    """
+    return a message with header appended
+    """
+    if type(msg) != bytes:
+        msg = msg.encode()
     header = f"{len(msg): <{HEADER_LENGTH}}".encode()
     return header + msg
 
 def create_socket() :
+    """
+    create a socket
+    """
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     return server
 
 def bind_listen_socket(server, HOST="", PORT=9999, backlog=5) :
+    """
+    bind and listen using socket
+    """
     try :
         server.bind((HOST, PORT))
     except Exception as e :
@@ -42,6 +56,9 @@ def bind_listen_socket(server, HOST="", PORT=9999, backlog=5) :
     server.listen(5)
 
 def accept_client(server) :
+    """
+    accept client and print connected client's information
+    """
     while True :
         try :
             connection, address = server.accept()
@@ -51,6 +68,9 @@ def accept_client(server) :
             connected_clients.append((address, connection))
 
 def remove_invalid_connections() :
+    """
+    remove invalid connections for every certain period of time
+    """
     global start
     check_interval = 1000
     while True :
@@ -69,6 +89,9 @@ def remove_invalid_connections() :
             connected_clients.pop(idx)
 
 def list_connected_client() :
+    """
+    print out all connected client
+    """
     n = 0
     print("==========Connected Clients==========")
     for address, connection in connected_clients :
@@ -78,12 +101,18 @@ def list_connected_client() :
     print()
 
 def close_all_connection() :
+    """
+    close all connections
+    """
     for address, connection in connected_clients :
         connection.close()
 
     connected_clients.clear()
 
 def select_connection_and_send_message(cmd) :
+    """
+    select specified connection and send messages
+    """
     cmd = cmd.split()
     idx = int(cmd[1])
 
@@ -101,6 +130,9 @@ def select_connection_and_send_message(cmd) :
             break
 
 def broadcast() :
+    """
+    broadcast to all connected clients
+    """
     message_to_clients = input("Enter broadcast message : ")
     message_to_clients = msg_format(message_to_clients)
     for address, connection in connected_clients :
@@ -110,6 +142,9 @@ def broadcast() :
             continue
 
 def print_list_of_commands() :
+    """
+    print out list of commands
+    """
     list_of_commands = [
         "1. list : list all valid connections",
         "2. close all connections : close all valid connections",
@@ -120,6 +155,9 @@ def print_list_of_commands() :
         print(command)
 
 def work(server) :
+    """
+    select functions specified by the commands
+    """
     print_list_of_commands()
 
     while True :
@@ -137,34 +175,46 @@ def work(server) :
             print("Invalid command")
             print_list_of_commands()
 
-def receive_all_incoming_messages() :
+def receive_all_incoming_messages():
+    """
+    receive all incoming messages
+    """
     print("Receiving from others")
-    while True :
-        for idx, (address, connection) in enumerate(connected_clients) :
+    while True:
+        for idx, (address, connection) in enumerate(connected_clients):
             message_from_client = recv_msg(idx)
-            if len(message_from_client) > 0 :
+            if len(message_from_client) > 0:
                 print(f"\nMessage from {message_from_client}")
 
-def scheduler(server) :
-    while True :
+def scheduler(server):
+    """
+    schedule tasks
+    """
+    while True:
         task_number = job_queue.get()
-        if task_number == 0 :
+        if task_number == 0:
             accept_client(server)
-        elif task_number == 1 :
+        elif task_number == 1:
             remove_invalid_connections()
-        elif task_number ==  2 :
+        elif task_number ==  2:
             receive_all_incoming_messages()
-        elif task_number == 3 :
+        elif task_number == 3:
             work(server)
         job_queue.task_done()
 
-def create_threads(server) :
+def create_threads(server):
+    """
+    Create threads
+    """
     for _ in range(NUMBER_OF_THREADS) :
         t = threading.Thread(target=scheduler, args=[server])
         t.daemon = True
         t.start()
 
 def create_tasks():
+    """
+    Create tasks by putting JOB numbers in JOB queue
+    """
     for JOB in JOB_SCHEDULING:
         job_queue.put(JOB)
 
