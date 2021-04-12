@@ -18,6 +18,7 @@
   * Competitive Programming and Algorithms 
   * Security
       * [Encryption (MD5, SHA256) with Python](https://cumulativebackendstack.blogspot.com/2021/03/encryption-with-python.html)
+      * [Basic Security terms](https://cumulativebackend.blogspot.com/2021/04/terms-in-security.html)
   * Projects 
       * [Chatting Bot Application - multiple clients with multi-threading](https://github.com/seonwoo960000/skill_stack/tree/main/Chatting%20Bot)
       * [Chatting Bot Application with GUI](https://github.com/seonwoo960000/skill_stack/tree/main/Chatting%20Bot%20Gui)
