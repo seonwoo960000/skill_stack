@@ -7,7 +7,7 @@
 ### Table of Contents
   * BACK-END
       * Sockets
-        * [OSI 7 Layer Model Diagram](https://github.com/seonwoo960000/skill_stack/blob/main/Chatting%20Bot%20Gui/diagrams/Untitled%20Diagram.png)
+        * [OSI 7 Layer Model Diagram](https://github.com/seonwoo960000/skill_stack/blob/main/diagrams/OSI%207%20layer%20model.png)
         * [Socket Programming with Python - TCP](https://cumulativebackendstack.blogspot.com/2021/03/tcp-with-socket-programming-in-python-1.html) 
         * [Socket Programming with Python - UDP](https://cumulativebackendstack.blogspot.com/2021/03/udp-with-python-udpuser-datagram.html) 
       * APIs
