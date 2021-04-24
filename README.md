@@ -8,16 +8,16 @@
   * BACK-END
       * Sockets
         * [OSI 7 Layer Model Diagram](https://github.com/seonwoo960000/skill_stack/blob/main/diagrams/OSI%207%20layer%20model.png)
-        * [Socket Programming with Python - TCP](https://cumulativebackendstack.blogspot.com/2021/03/tcp-with-socket-programming-in-python-1.html) 
-        * [Socket Programming with Python - UDP](https://cumulativebackendstack.blogspot.com/2021/03/udp-with-python-udpuser-datagram.html) 
+        * [Sockets - TCP](https://cumulativebackendstack.blogspot.com/2021/03/tcp-with-socket-programming-in-python-1.html) 
+        * [Sockets - UDP](https://cumulativebackendstack.blogspot.com/2021/03/udp-with-python-udpuser-datagram.html) 
       * APIs
         * [openAPI - fetching random pictures](https://www.blogger.com/blog/post/edit/2113535573913779963/505847935885418099?hl=en)
   * Operating System 
-      * [Thread, Multithreading with C/C++ and Python](https://cumulativebackendstack.blogspot.com/2021/04/operating-system-threading-with-cc.html)
-      * [Process, Multiprocess with C/C++ and Python](https://cumulativebackendstack.blogspot.com/2021/03/with-cc-what-is-process-process-is.html)
+      * [Thread, Multithreading](https://cumulativebackendstack.blogspot.com/2021/04/operating-system-threading-with-cc.html)
+      * [Process, Multiprocess](https://cumulativebackendstack.blogspot.com/2021/03/with-cc-what-is-process-process-is.html)
   * Competitive Programming and Algorithms 
   * Security
-      * [Encryption (MD5, SHA256) with Python](https://cumulativebackendstack.blogspot.com/2021/03/encryption-with-python.html)
+      * [Encryption (MD5, SHA256)](https://cumulativebackendstack.blogspot.com/2021/03/encryption-with-python.html)
       * [Basic Security terms](https://cumulativebackend.blogspot.com/2021/04/terms-in-security.html)
       * [Cryptography](https://cumulativebackend.blogspot.com/2021/04/cryptography.html)
   * Projects 
@@ -35,5 +35,5 @@
         * [What is RESTful API](https://cumulativeprogramminglanguage.blogspot.com/2021/04/what-is-restful-api.html)
         * [Create personal blog using spring boot](https://github.com/seonwoo960000/spring_project)
   * Etc 
-      * [Buffers during connection with Python](https://cumulativebackendstack.blogspot.com/2021/03/buffer-related-to-socketrecv.html)
+      * [Buffers when sending and receiving data](https://cumulativebackendstack.blogspot.com/2021/03/buffer-related-to-socketrecv.html)
  
