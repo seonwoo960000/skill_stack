@@ -1,10 +1,10 @@
 # Hello, folks! <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px">
-### About me 
+## About me 
   * [Blog](https://cumulativeskillstack.blogspot.com/)
   * [LinkedIn](https://www.linkedin.com/in/seon-woo-kim-53b6481ba/)
   * [LeetCode](https://leetcode.com/seonwoo960000/)
   * [CodeForces](https://codeforces.com/profile/jswoori0522)
-### Table of Contents
+## Table of Contents
   * BACK-END
       * Sockets
         * [OSI 7 Layer Model Diagram](https://github.com/seonwoo960000/skill_stack/blob/main/diagrams/OSI%207%20layer%20model.png)
