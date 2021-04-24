@@ -28,6 +28,8 @@
       * [Data Structures of Java In Comparison to Python, C/C++](https://cumulativeprogramminglanguage.blogspot.com/2021/04/java-data-structures-vs-python-cc-data.html)
       * Design Patterns 
         * [Singleton Pattern](https://cumulativeprogramminglanguage.blogspot.com/2021/04/design-pattern-singleton.html)
+        * [Adapter Pattern](https://cumulativeprogramminglanguage.blogspot.com/2021/04/design-pattern-adapter.html)
+        * [Proxy Pattern](https://cumulativeprogramminglanguage.blogspot.com/2021/04/design-pattern-proxy.html)
       * Spring Boot Web Development
         * [What is URI (URN, URL)](https://cumulativeprogramminglanguage.blogspot.com/2021/04/what-is-uriurn-url.html)
         * [What is RESTful API](https://cumulativeprogramminglanguage.blogspot.com/2021/04/what-is-restful-api.html)
