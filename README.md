@@ -26,7 +26,7 @@
   * JAVA 
       * [JVM, JRE, JDK](https://cumulativeprogramminglanguage.blogspot.com/2021/04/spring.html)
       * [Data Structures of Java In Comparison to Python, C/C++](https://cumulativeprogramminglanguage.blogspot.com/2021/04/java-data-structures-vs-python-cc-data.html)
-      * Design Pattenrs 
+      * Design Patterns 
         * [Singleton Pattern](https://cumulativeprogramminglanguage.blogspot.com/2021/04/design-pattern-singleton.html)
       * Spring Boot Web Development
         * [What is URI (URN, URL)](https://cumulativeprogramminglanguage.blogspot.com/2021/04/what-is-uriurn-url.html)
