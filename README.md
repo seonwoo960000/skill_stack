@@ -36,6 +36,7 @@
         * [Create personal blog using spring boot](https://github.com/seonwoo960000/spring_project)
         * JPA
           * [What is JPA, Entity, Repository](https://cumulativeprogramminglanguage.blogspot.com/2021/04/spring-boot-1-database.html)
+          * [Pagination](https://cumulativeprogramminglanguage.blogspot.com/2021/04/spring-boot-jpa-pagination.html)
   * Etc 
       * [Buffers when sending and receiving data](https://cumulativebackendstack.blogspot.com/2021/03/buffer-related-to-socketrecv.html)
  
