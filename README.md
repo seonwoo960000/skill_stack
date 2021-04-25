@@ -30,6 +30,7 @@
         * [Singleton Pattern](https://cumulativeprogramminglanguage.blogspot.com/2021/04/design-pattern-singleton.html)
         * [Adapter Pattern](https://cumulativeprogramminglanguage.blogspot.com/2021/04/design-pattern-adapter.html)
         * [Proxy Pattern](https://cumulativeprogramminglanguage.blogspot.com/2021/04/design-pattern-proxy.html)
+        * [Builder Pattern](https://cumulativeprogramminglanguage.blogspot.com/2021/04/design-pattern-builder.html)
       * Spring Boot Web Development
         * [What is URI (URN, URL)](https://cumulativeprogramminglanguage.blogspot.com/2021/04/what-is-uriurn-url.html)
         * [What is RESTful API](https://cumulativeprogramminglanguage.blogspot.com/2021/04/what-is-restful-api.html)
