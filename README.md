@@ -34,6 +34,8 @@
         * [What is URI (URN, URL)](https://cumulativeprogramminglanguage.blogspot.com/2021/04/what-is-uriurn-url.html)
         * [What is RESTful API](https://cumulativeprogramminglanguage.blogspot.com/2021/04/what-is-restful-api.html)
         * [Create personal blog using spring boot](https://github.com/seonwoo960000/spring_project)
+        * JPA
+          * [What is JPA, Entity, Repository](https://cumulativeprogramminglanguage.blogspot.com/2021/04/spring-boot-1-database.html)
   * Etc 
       * [Buffers when sending and receiving data](https://cumulativebackendstack.blogspot.com/2021/03/buffer-related-to-socketrecv.html)
  
