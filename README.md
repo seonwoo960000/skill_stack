@@ -4,6 +4,7 @@
   * [LinkedIn](https://www.linkedin.com/in/seon-woo-kim-53b6481ba/)
   * [LeetCode](https://leetcode.com/seonwoo960000/)
   * [CodeForces](https://codeforces.com/profile/jswoori0522)
+  * [Internship at LINE](https://cumulativeskillstack.blogspot.com/2021/08/internship-at-line.html)
 ## Table of Contents
   * BACK-END
       * Sockets
