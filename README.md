@@ -6,6 +6,12 @@
   * [CodeForces](https://codeforces.com/profile/jswoori0522)
   * [Internship at LINE](https://cumulativeskillstack.blogspot.com/2021/08/internship-at-line.html)
 ## Table of Contents
+  * Projects 
+      * Chatting Bot Application
+         * [multiple clients with multi-threading](https://github.com/seonwoo960000/skill_stack/tree/main/Chatting%20Bot)
+         * [GUI](https://github.com/seonwoo960000/skill_stack/tree/main/Chatting%20Bot%20Gui)
+      * [Not To Do List](https://github.com/seonwoo960000/not-to-do-list)
+      * [Flower](http://3.38.56.114/gallery)
   * BACK-END
       * Sockets
         * [OSI 7 Layer Model Diagram](https://github.com/seonwoo960000/skill_stack/blob/main/diagrams/OSI%207%20layer%20model.png)
@@ -21,11 +27,6 @@
       * [Encryption (MD5, SHA256)](https://cumulativebackendstack.blogspot.com/2021/03/encryption-with-python.html)
       * [Basic Security terms](https://cumulativebackend.blogspot.com/2021/04/terms-in-security.html)
       * [Cryptography](https://cumulativebackend.blogspot.com/2021/04/cryptography.html)
-  * Projects 
-      * Chatting Bot Application
-          * [multiple clients with multi-threading](https://github.com/seonwoo960000/skill_stack/tree/main/Chatting%20Bot)
-          * [GUI](https://github.com/seonwoo960000/skill_stack/tree/main/Chatting%20Bot%20Gui)
-      * [Not To Do List](https://github.com/seonwoo960000/not-to-do-list)
   * JAVA 
       * [JVM, JRE, JDK](https://cumulativeprogramminglanguage.blogspot.com/2021/04/spring.html)
       * [Data Structures of Java In Comparison to Python, C/C++](https://cumulativeprogramminglanguage.blogspot.com/2021/04/java-data-structures-vs-python-cc-data.html)
