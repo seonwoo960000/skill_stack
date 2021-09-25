@@ -25,7 +25,7 @@
       * Chatting Bot Application
           * [multiple clients with multi-threading](https://github.com/seonwoo960000/skill_stack/tree/main/Chatting%20Bot)
           * [GUI](https://github.com/seonwoo960000/skill_stack/tree/main/Chatting%20Bot%20Gui)
-      * [Not To Do List](http://www.not-to-do-list.site/)
+      * [Not To Do List](https://github.com/seonwoo960000/not-to-do-list)
   * JAVA 
       * [JVM, JRE, JDK](https://cumulativeprogramminglanguage.blogspot.com/2021/04/spring.html)
       * [Data Structures of Java In Comparison to Python, C/C++](https://cumulativeprogramminglanguage.blogspot.com/2021/04/java-data-structures-vs-python-cc-data.html)
