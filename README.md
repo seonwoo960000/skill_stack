@@ -12,6 +12,8 @@
          * [GUI](https://github.com/seonwoo960000/skill_stack/tree/main/Chatting%20Bot%20Gui)
       * [Not To Do List](https://github.com/seonwoo960000/not-to-do-list)
       * [Flower](http://3.38.56.114/gallery)
+  * BOOKS 
+      * [Effective Java](https://drive.google.com/file/d/1yZVs8Ub_PK2da1u-hPje5DvlAgRF0_qM/view?usp=sharing)
   * BACK-END
       * Sockets
         * [OSI 7 Layer Model Diagram](https://github.com/seonwoo960000/skill_stack/blob/main/diagrams/OSI%207%20layer%20model.png)
