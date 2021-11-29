@@ -13,7 +13,7 @@
       * [Not To Do List](https://github.com/seonwoo960000/not-to-do-list)
       * [Flower](http://3.38.56.114/gallery)
   * BOOKS 
-      * [Effective Java - in Korean](https://drive.google.com/file/d/1yZVs8Ub_PK2da1u-hPje5DvlAgRF0_qM/view?usp=sharing)
+      * [link to all the books I've read](https://lydian-eggplant-9cd.notion.site/ffdaa8d7e3ba451a9598de7b1fa24217)
   * BACK-END
       * Sockets
         * [OSI 7 Layer Model Diagram](https://github.com/seonwoo960000/skill_stack/blob/main/diagrams/OSI%207%20layer%20model.png)
