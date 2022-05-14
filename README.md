@@ -1,6 +1,6 @@
 # Hello, folks! <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px">
 ## About me 
-  * [Blog](https://cumulativeskillstack.blogspot.com/)
+  * [Blog](https://code-run.tistory.com/)
   * [LinkedIn](https://www.linkedin.com/in/seon-woo-kim-53b6481ba/)
   * [LeetCode](https://leetcode.com/seonwoo960000/)
   * [CodeForces](https://codeforces.com/profile/jswoori0522)
